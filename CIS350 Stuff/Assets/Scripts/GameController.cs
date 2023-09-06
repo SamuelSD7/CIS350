@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     private InputAction move;
     private InputAction restart;
     private InputAction quit;
+    private InputAction launch;
 
     private bool isPaddleMoving;
     [SerializeField]private GameObject paddle;
@@ -20,6 +21,8 @@ public class GameController : MonoBehaviour
     [SerializeField]private TMP_Text scoreText;
     private int score;
 
+    private BallController ballController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +30,7 @@ public class GameController : MonoBehaviour
 
         isPaddleMoving = false;
         CreateBricks();
-
+        ballController = GameObject.FindObjectOfType<BallController>();
     }
 
     public void UpdateScore()
@@ -59,11 +62,13 @@ public class GameController : MonoBehaviour
         move = playerInput.currentActionMap.FindAction("MovePaddle");
         restart = playerInput.currentActionMap.FindAction("RestartGame");
         quit = playerInput.currentActionMap.FindAction("QuitGame");
+        launch = playerInput.currentActionMap.FindAction("StartGame");
 
         move.started += Move_started;
         move.canceled += Move_canceled;
         quit.started += Quit_started;
         restart.started += Restart_started;
+        launch.started += Launch_started;
     }
 
     private void Quit_started(InputAction.CallbackContext obj)
@@ -81,6 +86,10 @@ public class GameController : MonoBehaviour
     private void Restart_started(InputAction.CallbackContext obj)
     {
 
+    }
+    private void Launch_started(InputAction.CallbackContext obj)
+    {
+        ballController.LaunchBall();
     }
 
     // Update is called once per frame

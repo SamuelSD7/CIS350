@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999e38801c66d421a926396d841e267c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paddle: {fileID: 1498100080}
 --- !u!1 &947910357
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +626,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!1 &1525244974
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInput: {fileID: 1525244975}
   paddle: {fileID: 1498100080}
-  paddleSpeed: 1
+  paddleSpeed: 15
   moveDirection: 0
   brick: {fileID: 2829556360899651376, guid: a24277042f4d44fa28f6f0a7ae5770e2, type: 3}
   scoreText: {fileID: 1611273544}
